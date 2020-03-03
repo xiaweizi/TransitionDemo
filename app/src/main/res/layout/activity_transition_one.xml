@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.xiaweizi.transition.TransitionOneActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/view_one1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#42A5F5"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <FrameLayout
+            android:id="@+id/view1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="#EF5350"
+            app:layout_constraintBottom_toTopOf="@id/view3"
+            app:layout_constraintEnd_toStartOf="@id/view2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="文本一"
+                android:textColor="#fff"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/view2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="#7E57C2"
+            app:layout_constraintBottom_toTopOf="@id/view4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/view1"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="文本二"
+                android:textColor="#fff"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:id="@+id/view3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:background="#66BB6A"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/view1"
+            app:layout_constraintStart_toStartOf="@id/view1"
+            app:layout_constraintTop_toBottomOf="@id/view1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="文本三"
+                android:textColor="#fff"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:id="@+id/view4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:background="#EC407A"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/view2"
+            app:layout_constraintStart_toStartOf="@id/view2"
+            app:layout_constraintTop_toBottomOf="@id/view2">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="文本四"
+                android:textColor="#fff"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <Button
+        android:id="@+id/bt_one_transition1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="40dp"
+        android:text="透明度变化"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toStartOf="@id/bt_one_transition6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_one1" />
+
+    <Button
+        android:id="@+id/bt_one_transition2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="slide"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="@id/bt_one_transition1"
+        app:layout_constraintStart_toStartOf="@id/bt_one_transition1"
+        app:layout_constraintTop_toBottomOf="@id/bt_one_transition1" />
+
+    <Button
+        android:id="@+id/bt_one_transition3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="fade"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="@id/bt_one_transition1"
+        app:layout_constraintStart_toStartOf="@id/bt_one_transition1"
+        app:layout_constraintTop_toBottomOf="@id/bt_one_transition2" />
+
+    <Button
+        android:id="@+id/bt_one_transition4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="explode"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="@id/bt_one_transition1"
+        app:layout_constraintStart_toStartOf="@id/bt_one_transition1"
+        app:layout_constraintTop_toBottomOf="@id/bt_one_transition3" />
+
+    <Button
+        android:id="@+id/bt_one_transition5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:text="side+fade+explode"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="@id/bt_one_transition1"
+        app:layout_constraintStart_toStartOf="@id/bt_one_transition1"
+        app:layout_constraintTop_toBottomOf="@id/bt_one_transition4" />
+
+
+    <Button
+        android:id="@+id/bt_one_transition6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:text="changeBounds"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/bt_one_transition1"
+        app:layout_constraintTop_toTopOf="@id/bt_one_transition1" />
+
+    <Button
+        android:id="@+id/bt_one_transition7"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="changeClipBounds"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="@id/bt_one_transition6"
+        app:layout_constraintStart_toStartOf="@id/bt_one_transition6"
+        app:layout_constraintTop_toBottomOf="@id/bt_one_transition6" />
+
+    <Button
+        android:id="@+id/bt_one_transition8"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="changeScroll"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="@id/bt_one_transition6"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/bt_one_transition6"
+        app:layout_constraintTop_toBottomOf="@id/bt_one_transition7" />
+
+    <Button
+        android:id="@+id/bt_one_transition9"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="changeTransform"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="@id/bt_one_transition6"
+        app:layout_constraintStart_toStartOf="@id/bt_one_transition6"
+        app:layout_constraintTop_toBottomOf="@id/bt_one_transition8" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
