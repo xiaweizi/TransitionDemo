@@ -47,7 +47,7 @@ public class TransitionView extends View {
         mTextPaint.setTypeface(Typeface.DEFAULT_BOLD);
         mTextPaint.setTextAlign(Paint.Align.CENTER);
         mStartColor = Color.WHITE;
-        mEndColor = Color.parseColor("#EC407A");
+        mEndColor = TransitionUtils.getColor(0);
         mRect = new Rect();
     }
 
