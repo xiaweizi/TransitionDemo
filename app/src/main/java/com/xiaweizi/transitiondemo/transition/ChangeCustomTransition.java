@@ -1,4 +1,4 @@
-package com.xiaweizi.transitiondemo;
+package com.xiaweizi.transitiondemo.transition;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
@@ -7,6 +7,8 @@ import android.transition.Transition;
 import android.transition.TransitionValues;
 import android.util.Log;
 import android.view.ViewGroup;
+
+import com.xiaweizi.transitiondemo.view.TransitionView;
 
 /**
  * <pre>

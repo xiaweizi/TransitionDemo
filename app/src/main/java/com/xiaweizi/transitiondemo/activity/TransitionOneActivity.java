@@ -1,4 +1,4 @@
-package com.xiaweizi.transitiondemo;
+package com.xiaweizi.transitiondemo.activity;
 
 import android.graphics.Rect;
 import android.os.Bundle;
@@ -16,6 +16,9 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+
+import com.xiaweizi.transitiondemo.R;
+import com.xiaweizi.transitiondemo.TransitionUtils;
 
 public class TransitionOneActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.xiaweizi.transitiondemo;
+package com.xiaweizi.transitiondemo.activity;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -11,6 +11,14 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+
+import com.xiaweizi.transitiondemo.R;
+import com.xiaweizi.transitiondemo.view.TransitionView;
+import com.xiaweizi.transitiondemo.transition.ChangeBackgroundAlphaTransition;
+import com.xiaweizi.transitiondemo.transition.ChangeBackgroundColorTransition;
+import com.xiaweizi.transitiondemo.transition.ChangeCustomTransition;
+import com.xiaweizi.transitiondemo.transition.ChangeImageResourceTransition;
+import com.xiaweizi.transitiondemo.transition.ChangeTextTransition;
 
 public class TransitionTwoActivity extends AppCompatActivity {
 

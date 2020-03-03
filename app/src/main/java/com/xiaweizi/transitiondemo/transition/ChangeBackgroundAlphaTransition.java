@@ -1,12 +1,12 @@
-package com.xiaweizi.transitiondemo;
+package com.xiaweizi.transitiondemo.transition;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
+import android.graphics.drawable.ColorDrawable;
 import android.transition.Transition;
 import android.transition.TransitionValues;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 /**
  * <pre>
@@ -16,29 +16,29 @@ import android.widget.TextView;
  *     desc   :
  * </pre>
  */
-public class ChangeTextTransition extends Transition {
+public class ChangeBackgroundAlphaTransition extends Transition {
 
-    private static String PROPNAME_TEXT = "xiaweizi:changeText:text";
+    private static String PROPNAME_BACKGROUND = "xiaweizi:changeBackgroundAlpha:background";
 
     @Override
     public void captureStartValues(TransitionValues transitionValues) {
         if (transitionValues == null) return;
         View view = transitionValues.view;
-        transitionValues.values.put(PROPNAME_TEXT, ((TextView) view).getText());
+        transitionValues.values.put(PROPNAME_BACKGROUND, view.getBackground());
     }
 
     @Override
     public void captureEndValues(TransitionValues transitionValues) {
         if (transitionValues == null) return;
         View view = transitionValues.view;
-        transitionValues.values.put(PROPNAME_TEXT, ((TextView) view).getText());
+        transitionValues.values.put(PROPNAME_BACKGROUND, view.getBackground());
     }
 
     @Override
     public Animator createAnimator(ViewGroup sceneRoot, TransitionValues startValues, final TransitionValues endValues) {
-        final TextView endView = (TextView) endValues.view;
-        final CharSequence startText = (CharSequence) startValues.values.get(PROPNAME_TEXT);
-        final CharSequence endText = (CharSequence) endValues.values.get(PROPNAME_TEXT);
+        final View endView = endValues.view;
+        final ColorDrawable startColor = (ColorDrawable) startValues.values.get(PROPNAME_BACKGROUND);
+        final ColorDrawable endColor = (ColorDrawable) endValues.values.get(PROPNAME_BACKGROUND);
         ValueAnimator animator = ValueAnimator.ofFloat(0, 1f);
         animator.setDuration(300);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -46,13 +46,13 @@ public class ChangeTextTransition extends Transition {
             public void onAnimationUpdate(ValueAnimator animation) {
                 float animatedValue = (float) animation.getAnimatedValue();
                 if (animatedValue <= 0.5f) {
-                    endView.setText(startText);
+                    endView.setBackground(startColor);
                     float ratio = (0.5f - animatedValue) / 0.5f;
-                    endView.setAlpha(ratio);
+                    endView.getBackground().setAlpha((int) (255 * ratio));
                 } else {
-                    endView.setText(endText);
+                    endView.setBackground(endColor);
                     float ratio = (animatedValue - 0.5f) / 0.5f;
-                    endView.setAlpha(ratio);
+                    endView.getBackground().setAlpha((int) (255 * ratio));
                 }
             }
         });

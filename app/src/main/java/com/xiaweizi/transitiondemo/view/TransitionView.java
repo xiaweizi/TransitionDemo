@@ -1,4 +1,4 @@
-package com.xiaweizi.transitiondemo;
+package com.xiaweizi.transitiondemo.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -8,6 +8,9 @@ import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.xiaweizi.transitiondemo.R;
+import com.xiaweizi.transitiondemo.TransitionUtils;
 
 /**
  * <pre>

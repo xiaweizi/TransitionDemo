@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TransitionHomeActivity">
+        <activity android:name=".activity.TransitionHomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
@@ -17,8 +17,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TransitionOneActivity" />
-        <activity android:name=".TransitionTwoActivity" />
+        <activity android:name=".activity.TransitionOneActivity" />
+        <activity android:name=".activity.TransitionTwoActivity" />
     </application>
 
 </manifest>

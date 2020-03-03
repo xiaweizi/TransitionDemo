@@ -1,10 +1,12 @@
-package com.xiaweizi.transitiondemo;
+package com.xiaweizi.transitiondemo.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.xiaweizi.transitiondemo.R;
 
 public class TransitionHomeActivity extends AppCompatActivity {
 

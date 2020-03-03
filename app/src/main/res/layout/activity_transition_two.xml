@@ -73,7 +73,7 @@
         app:layout_constraintStart_toStartOf="@id/cl_two_transition1"
         app:layout_constraintTop_toBottomOf="@id/cl_two_transition1">
 
-        <com.xiaweizi.transitiondemo.TransitionView
+        <com.xiaweizi.transitiondemo.view.TransitionView
             android:id="@+id/view_two_transition3"
             android:layout_width="0dp"
             android:layout_height="0dp"
