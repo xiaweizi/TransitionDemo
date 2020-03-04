@@ -6,6 +6,7 @@ import android.animation.ValueAnimator;
 import android.graphics.drawable.ColorDrawable;
 import android.transition.Transition;
 import android.transition.TransitionValues;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -25,6 +26,7 @@ public class ChangeBackgroundColorTransition extends Transition {
     public void captureStartValues(TransitionValues transitionValues) {
         if (transitionValues == null) return;
         View view = transitionValues.view;
+        Log.i("xiaweizi::", "captureStartValues: " + view.getBackground());
         transitionValues.values.put(PROPNAME_COLOR, view.getBackground());
     }
 
@@ -32,6 +34,7 @@ public class ChangeBackgroundColorTransition extends Transition {
     public void captureEndValues(TransitionValues transitionValues) {
         if (transitionValues == null) return;
         View view = transitionValues.view;
+        Log.i("xiaweizi::", "captureEndValues: " + view.getBackground());
         transitionValues.values.put(PROPNAME_COLOR, view.getBackground());
     }
 
@@ -43,7 +46,7 @@ public class ChangeBackgroundColorTransition extends Transition {
         if (startColorDrawable == null || endColorDrawable == null) return super.createAnimator(sceneRoot, startValues, endValues);
         final int startColor = startColorDrawable.getColor();
         final int endColor = endColorDrawable.getColor();
-
+        Log.i("xiaweizi::", "createAnimator: start:" + startColor + " endColor:" + endColor);
         ValueAnimator animator = ValueAnimator.ofObject(new ArgbEvaluator(), startColor, endColor);
         animator.setDuration(300);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
