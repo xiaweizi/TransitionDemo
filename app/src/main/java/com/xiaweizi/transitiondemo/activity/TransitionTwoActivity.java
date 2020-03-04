@@ -5,6 +5,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.transition.TransitionManager;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,12 +14,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.xiaweizi.transitiondemo.R;
-import com.xiaweizi.transitiondemo.view.TransitionView;
+import com.xiaweizi.transitiondemo.TransitionUtils;
 import com.xiaweizi.transitiondemo.transition.ChangeBackgroundAlphaTransition;
 import com.xiaweizi.transitiondemo.transition.ChangeBackgroundColorTransition;
 import com.xiaweizi.transitiondemo.transition.ChangeCustomTransition;
 import com.xiaweizi.transitiondemo.transition.ChangeImageResourceTransition;
+import com.xiaweizi.transitiondemo.transition.ChangeTextColorTransition;
+import com.xiaweizi.transitiondemo.transition.ChangeTextSizeTransition;
 import com.xiaweizi.transitiondemo.transition.ChangeTextTransition;
+import com.xiaweizi.transitiondemo.transition.ChangeTextTypefaceTransition;
+import com.xiaweizi.transitiondemo.view.TransitionView;
 
 public class TransitionTwoActivity extends AppCompatActivity {
 
@@ -54,10 +59,10 @@ public class TransitionTwoActivity extends AppCompatActivity {
                 ChangeTextTransition changeTextTransition = new ChangeTextTransition();
                 changeTextTransition.addTarget(mContent);
                 TransitionManager.beginDelayedTransition(mTransition1, changeTextTransition);
-                if (TextUtils.equals(mContent.getText(), "文本一")) {
-                    mContent.setText("文本二");
+                if (TextUtils.equals(mContent.getText(), "Hello")) {
+                    mContent.setText("World");
                 } else {
-                    mContent.setText("文本一");
+                    mContent.setText("Hello");
                 }
             }
         });
@@ -122,5 +127,55 @@ public class TransitionTwoActivity extends AppCompatActivity {
                 }
             }
         });
+
+        findViewById(R.id.bt_two_transition6).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ChangeTextColorTransition changeTextColorTransition = new ChangeTextColorTransition();
+                changeTextColorTransition.addTarget(mContent);
+                TransitionManager.beginDelayedTransition(mTransition1, changeTextColorTransition);
+                if (mContent.getCurrentTextColor() == TransitionUtils.getColor(8)) {
+                    mContent.setTextColor(TransitionUtils.getColor(0));
+                } else {
+                    mContent.setTextColor(TransitionUtils.getColor(8));
+                }
+            }
+        });
+
+        findViewById(R.id.bt_two_transition7).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ChangeTextSizeTransition changeTextSizeTransition = new ChangeTextSizeTransition();
+                changeTextSizeTransition.addTarget(mContent);
+                TransitionManager.beginDelayedTransition(mTransition1, changeTextSizeTransition);
+                int textSize = getResources().getDimensionPixelSize(R.dimen.text_size);
+                if (mContent.getTextSize() == textSize) {
+                    mContent.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize / 3);
+                } else {
+                    mContent.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+                }
+            }
+        });
+
+        findViewById(R.id.bt_two_transition8).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ChangeTextTypefaceTransition changeTextTypefaceTransition = new ChangeTextTypefaceTransition();
+                changeTextTypefaceTransition.addTarget(mContent);
+                TransitionManager.beginDelayedTransition(mTransition1, changeTextTypefaceTransition);
+                int level = 1;
+                if (mContent.getTag() instanceof String) {
+                    level = Integer.parseInt((String) mContent.getTag());
+                } else {
+                    level = (int) mContent.getTag();
+                }
+                if (level == 1) {
+                    mContent.setTag(5);
+                } else {
+                    mContent.setTag(1);
+                }
+            }
+        });
     }
+
 }

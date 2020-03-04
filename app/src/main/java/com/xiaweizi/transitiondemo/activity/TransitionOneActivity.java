@@ -13,6 +13,10 @@ import android.transition.TransitionManager;
 import android.transition.TransitionSet;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.AnticipateInterpolator;
+import android.view.animation.AnticipateOvershootInterpolator;
+import android.view.animation.BounceInterpolator;
+import android.view.animation.OvershootInterpolator;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -89,7 +93,9 @@ public class TransitionOneActivity extends AppCompatActivity {
         findViewById(R.id.bt_one_transition6).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TransitionManager.beginDelayedTransition(mRoot, new ChangeBounds());
+                ChangeBounds transition = new ChangeBounds();
+                transition.setInterpolator(new AnticipateInterpolator());
+                TransitionManager.beginDelayedTransition(mRoot, transition);
                 ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) view3.getLayoutParams();
 //                int height = view1.getHeight();
 //                int width = view1.getWidth();
@@ -107,7 +113,9 @@ public class TransitionOneActivity extends AppCompatActivity {
         findViewById(R.id.bt_one_transition7).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TransitionManager.beginDelayedTransition(mRoot, new ChangeClipBounds());
+                ChangeClipBounds transition = new ChangeClipBounds();
+                transition.setInterpolator(new BounceInterpolator());
+                TransitionManager.beginDelayedTransition(mRoot, transition);
                 int width = view2.getWidth();
                 int height = view2.getHeight();
                 int gap = 140;
@@ -123,7 +131,9 @@ public class TransitionOneActivity extends AppCompatActivity {
         findViewById(R.id.bt_one_transition8).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TransitionManager.beginDelayedTransition(mRoot, new ChangeScroll());
+                ChangeScroll transition = new ChangeScroll();
+                transition.setInterpolator(new AnticipateOvershootInterpolator());
+                TransitionManager.beginDelayedTransition(mRoot, transition);
                 if (view1.getScrollX() == -100 && view1.getScrollY() == -100) {
                     view1.scrollTo(0, 0);
                 } else {
@@ -134,7 +144,9 @@ public class TransitionOneActivity extends AppCompatActivity {
         findViewById(R.id.bt_one_transition9).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TransitionManager.beginDelayedTransition(mRoot, new ChangeTransform());
+                ChangeTransform transition = new ChangeTransform();
+                transition.setInterpolator(new OvershootInterpolator());
+                TransitionManager.beginDelayedTransition(mRoot, transition);
                 if (view1.getTranslationX() == 100 && view1.getTranslationY() == 100) {
                     view1.setTranslationX(0);
                     view1.setTranslationY(0);

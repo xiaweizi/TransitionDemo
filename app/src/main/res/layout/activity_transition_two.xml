@@ -23,11 +23,12 @@
             android:id="@+id/tv_two_transition1"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:fontFamily="sans-serif-thin"
             android:gravity="center"
-            android:text="文本一"
+            android:tag="1"
+            android:text="Hello"
             android:textColor="#fff"
             android:textSize="@dimen/text_size"
-            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -114,63 +115,89 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="20dp"
-        android:text="文本变化"
+        android:layout_marginEnd="10dp"
+        android:text="切换文本内容"
         android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/bt_two_transition2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cl_two_transition3" />
+
+    <Button
+        android:id="@+id/bt_two_transition6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="切换文本颜色"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="@id/bt_two_transition1"
+        app:layout_constraintStart_toStartOf="@id/bt_two_transition1"
+        app:layout_constraintTop_toBottomOf="@id/bt_two_transition1" />
+
+    <Button
+        android:id="@+id/bt_two_transition7"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="切换文本大小"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="@id/bt_two_transition1"
+        app:layout_constraintStart_toStartOf="@id/bt_two_transition1"
+        app:layout_constraintTop_toBottomOf="@id/bt_two_transition6" />
+
+    <Button
+        android:id="@+id/bt_two_transition8"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="切换文本字体"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="@id/bt_two_transition1"
+        app:layout_constraintStart_toStartOf="@id/bt_two_transition1"
+        app:layout_constraintTop_toBottomOf="@id/bt_two_transition7" />
 
     <Button
         android:id="@+id/bt_two_transition2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginEnd="20dp"
         android:text="背景透明度"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bt_two_transition1" />
+        app:layout_constraintStart_toEndOf="@id/bt_two_transition1"
+        app:layout_constraintTop_toTopOf="@id/bt_two_transition1" />
 
     <Button
         android:id="@+id/bt_two_transition3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
         android:text="背景颜色"
         android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/bt_two_transition2"
+        app:layout_constraintStart_toStartOf="@id/bt_two_transition2"
         app:layout_constraintTop_toBottomOf="@id/bt_two_transition2" />
 
     <Button
         android:id="@+id/bt_two_transition4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
         android:text="背景图片"
         android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/bt_two_transition2"
+        app:layout_constraintStart_toStartOf="@id/bt_two_transition2"
         app:layout_constraintTop_toBottomOf="@id/bt_two_transition3" />
 
     <Button
         android:id="@+id/bt_two_transition5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
         android:text="自定义View"
         android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/bt_two_transition2"
+        app:layout_constraintStart_toStartOf="@id/bt_two_transition2"
         app:layout_constraintTop_toBottomOf="@id/bt_two_transition4" />
 
 

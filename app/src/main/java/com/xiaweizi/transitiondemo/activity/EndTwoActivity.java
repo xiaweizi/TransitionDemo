@@ -5,9 +5,6 @@ import android.graphics.Matrix;
 import android.graphics.RectF;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.transition.ChangeBounds;
-import android.transition.ChangeTransform;
-import android.transition.TransitionSet;
 import android.util.Log;
 import android.view.View;
 
@@ -25,13 +22,6 @@ public class EndTwoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end_two);
-        TransitionSet transitionSet = new TransitionSet();
-        transitionSet.addTransition(new ChangeBounds());
-        transitionSet.addTransition(new ChangeTransform());
-        transitionSet.addTarget(findViewById(R.id.iv_end_two4));
-        transitionSet.addTarget(findViewById(R.id.tv_end_two3));
-        transitionSet.addTarget(findViewById(R.id.tv_end_two1));
-        getWindow().setSharedElementEnterTransition(transitionSet);
         setEnterSharedElementCallback(new MyListener("enter"));
     }
 
@@ -74,8 +64,9 @@ public class EndTwoActivity extends AppCompatActivity {
 
         @Override
         public View onCreateSnapshotView(Context context, Parcelable snapshot) {
-            Log.i(type, "onCreateSnapshotView: ");
-            return super.onCreateSnapshotView(context, snapshot);
+            View view = super.onCreateSnapshotView(context, snapshot);
+            Log.i(type, "onCreateSnapshotView: " + view.getClass().getSimpleName() + "-" + view.hashCode());
+            return view;
         }
 
         @Override
@@ -89,7 +80,7 @@ public class EndTwoActivity extends AppCompatActivity {
             if (sharedElements != null) {
                 sb.append("\tsharedElements:");
                 for (View sharedElement : sharedElements) {
-                    sb.append(sharedElement.getTag()).append(";");
+                    sb.append(sharedElement.hashCode()).append(":").append(sharedElement.getClass().getSimpleName()).append(":").append(sharedElement.getTag()).append(";");
                 }
             }
             return sb.toString();
@@ -101,7 +92,8 @@ public class EndTwoActivity extends AppCompatActivity {
                 sb.append("\tsharedElementsMap:");
                 Set<String> strings = sharedElements.keySet();
                 for (String key : strings) {
-                    sb.append(key).append(":").append(sharedElements.get(key).getTag()).append(";");
+                    View sharedElement = sharedElements.get(key);
+                    sb.append(key).append(":").append(sharedElement.getTag()).append(";").append(sharedElement.hashCode()).append(":").append(sharedElement.getClass().getSimpleName());
                 }
             }
             return sb.toString();
