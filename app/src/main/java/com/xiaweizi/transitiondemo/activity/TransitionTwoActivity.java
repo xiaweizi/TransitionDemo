@@ -19,10 +19,7 @@ import com.xiaweizi.transitiondemo.transition.ChangeBackgroundAlphaTransition;
 import com.xiaweizi.transitiondemo.transition.ChangeBackgroundColorTransition;
 import com.xiaweizi.transitiondemo.transition.ChangeCustomTransition;
 import com.xiaweizi.transitiondemo.transition.ChangeImageResourceTransition;
-import com.xiaweizi.transitiondemo.transition.ChangeTextColorTransition;
-import com.xiaweizi.transitiondemo.transition.ChangeTextSizeTransition;
 import com.xiaweizi.transitiondemo.transition.ChangeTextTransition;
-import com.xiaweizi.transitiondemo.transition.ChangeTextTypefaceTransition;
 import com.xiaweizi.transitiondemo.view.TransitionView;
 
 public class TransitionTwoActivity extends AppCompatActivity {
@@ -49,6 +46,7 @@ public class TransitionTwoActivity extends AppCompatActivity {
         mTransition3 = findViewById(R.id.cl_two_transition3);
         mTransition4 = findViewById(R.id.cl_two_transition4);
         mTransition2.getBackground().setAlpha(255);
+        mContent.setTag(R.id.type_face_level, 1);
         initListener();
     }
 
@@ -131,7 +129,7 @@ public class TransitionTwoActivity extends AppCompatActivity {
         findViewById(R.id.bt_two_transition6).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ChangeTextColorTransition changeTextColorTransition = new ChangeTextColorTransition();
+                ChangeTextTransition changeTextColorTransition = new ChangeTextTransition();
                 changeTextColorTransition.addTarget(mContent);
                 TransitionManager.beginDelayedTransition(mTransition1, changeTextColorTransition);
                 if (mContent.getCurrentTextColor() == TransitionUtils.getColor(8)) {
@@ -145,7 +143,7 @@ public class TransitionTwoActivity extends AppCompatActivity {
         findViewById(R.id.bt_two_transition7).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ChangeTextSizeTransition changeTextSizeTransition = new ChangeTextSizeTransition();
+                ChangeTextTransition changeTextSizeTransition = new ChangeTextTransition();
                 changeTextSizeTransition.addTarget(mContent);
                 TransitionManager.beginDelayedTransition(mTransition1, changeTextSizeTransition);
                 int textSize = getResources().getDimensionPixelSize(R.dimen.text_size);
@@ -160,19 +158,18 @@ public class TransitionTwoActivity extends AppCompatActivity {
         findViewById(R.id.bt_two_transition8).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ChangeTextTypefaceTransition changeTextTypefaceTransition = new ChangeTextTypefaceTransition();
+                ChangeTextTransition changeTextTypefaceTransition = new ChangeTextTransition();
                 changeTextTypefaceTransition.addTarget(mContent);
                 TransitionManager.beginDelayedTransition(mTransition1, changeTextTypefaceTransition);
                 int level = 1;
-                if (mContent.getTag() instanceof String) {
-                    level = Integer.parseInt((String) mContent.getTag());
-                } else {
-                    level = (int) mContent.getTag();
+                Object tag = mContent.getTag(R.id.type_face_level);
+                if (tag instanceof Integer) {
+                    level = (int) tag;
                 }
                 if (level == 1) {
-                    mContent.setTag(5);
+                    mContent.setTag(R.id.type_face_level, 5);
                 } else {
-                    mContent.setTag(1);
+                    mContent.setTag(R.id.type_face_level, 1);
                 }
             }
         });

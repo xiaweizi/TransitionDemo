@@ -25,7 +25,6 @@
             android:layout_height="0dp"
             android:fontFamily="sans-serif-thin"
             android:gravity="center"
-            android:tag="1"
             android:text="Hello"
             android:textColor="#fff"
             android:textSize="@dimen/text_size"

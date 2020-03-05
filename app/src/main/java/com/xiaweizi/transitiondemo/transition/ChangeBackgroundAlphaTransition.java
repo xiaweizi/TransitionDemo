@@ -22,13 +22,15 @@ public class ChangeBackgroundAlphaTransition extends Transition {
 
     @Override
     public void captureStartValues(TransitionValues transitionValues) {
-        if (transitionValues == null) return;
-        View view = transitionValues.view;
-        transitionValues.values.put(PROPNAME_BACKGROUND, view.getBackground());
+        captureValues(transitionValues);
     }
 
     @Override
     public void captureEndValues(TransitionValues transitionValues) {
+        captureValues(transitionValues);
+    }
+
+    private void captureValues(TransitionValues transitionValues) {
         if (transitionValues == null) return;
         View view = transitionValues.view;
         transitionValues.values.put(PROPNAME_BACKGROUND, view.getBackground());

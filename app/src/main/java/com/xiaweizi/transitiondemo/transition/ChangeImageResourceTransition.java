@@ -22,20 +22,25 @@ public class ChangeImageResourceTransition extends Transition {
 
     @Override
     public void captureStartValues(TransitionValues transitionValues) {
-        if (transitionValues == null) return;
-        ImageView view = (ImageView) transitionValues.view;
-        transitionValues.values.put(PROPNAME_IMAGE_RESOURCE, view.getDrawable());
+        captureValues(transitionValues);
     }
 
     @Override
     public void captureEndValues(TransitionValues transitionValues) {
-        if (transitionValues == null) return;
-        ImageView view = (ImageView) transitionValues.view;
-        transitionValues.values.put(PROPNAME_IMAGE_RESOURCE, view.getDrawable());
+        captureValues(transitionValues);
+    }
+
+    private void captureValues(TransitionValues transitionValues) {
+        if (transitionValues == null || !(transitionValues.view instanceof ImageView)) return;
+        ImageView ImageView = (android.widget.ImageView) transitionValues.view;
+        transitionValues.values.put(PROPNAME_IMAGE_RESOURCE, ImageView.getDrawable());
     }
 
     @Override
     public Animator createAnimator(ViewGroup sceneRoot, TransitionValues startValues, final TransitionValues endValues) {
+        if (!(endValues.view instanceof ImageView)) {
+            return super.createAnimator(sceneRoot, startValues, endValues);
+        }
         final ImageView endView = (ImageView) endValues.view;
         final Drawable startDrawable = (Drawable) startValues.values.get(PROPNAME_IMAGE_RESOURCE);
         final Drawable endDrawable = (Drawable) endValues.values.get(PROPNAME_IMAGE_RESOURCE);
