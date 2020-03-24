@@ -42,6 +42,12 @@ public class TransitionHomeActivity extends AppCompatActivity {
                 startActivity(new Intent(TransitionHomeActivity.this, StartTwoActivity.class));
             }
         });
+        findViewById(R.id.bt_home_transition5).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(TransitionHomeActivity.this, RecyclerViewActivity.class));
+            }
+        });
     }
 
 }
