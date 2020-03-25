@@ -3,14 +3,15 @@ package com.xiaweizi.transitiondemo.activity;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.xiaweizi.transitiondemo.R;
 import com.xiaweizi.transitiondemo.TransitionUtils;
 import com.xiaweizi.transitiondemo.adapter.ColorAdapter;
 import com.xiaweizi.transitiondemo.bean.ColorBean;
-import com.xiaweizi.transitiondemo.other.ColorItemDecoration;
+import com.xiaweizi.transitiondemo.other.ColorItemTouchHelperCallback;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,9 +28,11 @@ public class RecyclerViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recycler_view);
         mRecyclerView = findViewById(R.id.recycler_view);
         mAdapter = new ColorAdapter(this);
-        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mAdapter);
-        mRecyclerView.addItemDecoration(new ColorItemDecoration());
+        ColorItemTouchHelperCallback helperCallback = new ColorItemTouchHelperCallback();
+        ItemTouchHelper helper = new ItemTouchHelper(helperCallback);
+        helper.attachToRecyclerView(mRecyclerView);
         initData();
     }
 
