@@ -4,7 +4,9 @@ buildscript {
     repositories {
         google()
         jcenter()
-        
+        maven { url 'http://sdk.pt.miui.com/miuisdk/maven2/' }
+        maven { url 'http://artifactory.d.xiaomi.net/artifactory/artifactory-releases/' }
+        maven { url 'http://nexus.d.xiaomi.net/nexus/content/groups/public' }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.3'
@@ -18,7 +20,9 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
+        maven { url 'http://sdk.pt.miui.com/miuisdk/maven2/' }
+        maven { url 'http://artifactory.d.xiaomi.net/artifactory/artifactory-releases/' }
+        maven { url 'http://nexus.d.xiaomi.net/nexus/content/groups/public' }
     }
 }
 
