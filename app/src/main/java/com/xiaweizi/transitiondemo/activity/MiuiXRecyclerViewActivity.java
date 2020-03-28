@@ -26,7 +26,7 @@ public class MiuiXRecyclerViewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recycler_view);
+        setContentView(R.layout.activity_miuix_recycler_view);
         mRecyclerView = findViewById(R.id.recycler_view);
         mAdapter = new ColorAdapter(this);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
