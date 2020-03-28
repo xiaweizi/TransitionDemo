@@ -10,8 +10,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.RecyclerViewActivity"></activity>
-        <activity android:name=".activity.MiuiXRecyclerViewActivity"></activity>
+        <activity
+            android:name=".activity.RecyclerViewActivity"
+            android:label="AndroidXRecyclerView" />
+        <activity
+            android:name=".activity.MiuiXRecyclerViewActivity"
+            android:label="MiuiXRecyclerView" />
         <activity android:name=".activity.EndTwoActivity" />
         <activity android:name=".activity.StartTwoActivity" />
         <activity android:name=".activity.EndOneActivity" />
