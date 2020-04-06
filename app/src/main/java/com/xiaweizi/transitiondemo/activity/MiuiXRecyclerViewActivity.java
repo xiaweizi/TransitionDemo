@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import miuix.recyclerview.widget.MiuiScaleItemAnimator;
+import miuix.recyclerview.widget.MiuiDefaultItemAnimator;
 import miuix.recyclerview.widget.RecyclerView;
 
 public class MiuiXRecyclerViewActivity extends AppCompatActivity {
@@ -35,7 +35,7 @@ public class MiuiXRecyclerViewActivity extends AppCompatActivity {
         ColorItemTouchHelperCallback helperCallback = new ColorItemTouchHelperCallback();
         ItemTouchHelper helper = new ItemTouchHelper(helperCallback);
         helper.attachToRecyclerView(mRecyclerView);
-        mRecyclerView.setItemAnimator(new MiuiScaleItemAnimator());
+        mRecyclerView.setItemAnimator(new MiuiDefaultItemAnimator());
         initData();
     }
 
