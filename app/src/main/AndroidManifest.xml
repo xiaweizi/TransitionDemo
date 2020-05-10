@@ -10,6 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".stub.touch.TouchTestActivity"></activity>
+        <activity android:name=".activity.StubHomeActivity" />
         <activity
             android:name=".activity.RecyclerViewActivity"
             android:label="AndroidXRecyclerView" />

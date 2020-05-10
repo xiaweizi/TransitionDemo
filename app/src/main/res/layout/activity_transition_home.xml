@@ -62,6 +62,7 @@
         android:layout_marginEnd="20dp"
         android:text="androidx"
         android:textAllCaps="false"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bt_home_transition4" />
@@ -75,9 +76,23 @@
         android:layout_marginEnd="20dp"
         android:text="miuix"
         android:textAllCaps="false"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bt_home_transition5" />
+
+    <Button
+        android:id="@+id/bt_home_transition7"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="stubHome"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bt_home_transition6" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
