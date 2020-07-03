@@ -11,7 +11,6 @@ import androidx.core.widget.NestedScrollView;
 
 import com.xiaweizi.transitiondemo.R;
 
-import miuix.animation.Folme;
 
 public class TouchTestActivity extends AppCompatActivity {
 
@@ -50,15 +49,12 @@ public class TouchTestActivity extends AppCompatActivity {
                     @Override
                     public void onTouchEvent(int eventType) {
                         if (eventType == MotionEvent.ACTION_DOWN) {
-                            Folme.useAt(mTouchView).touch().touchDown();
                             mTouchView.setText("DOWN");
                         } else if (eventType == MotionEvent.ACTION_UP) {
-                            Folme.useAt(mTouchView).touch().touchUp();
                             mTouchView.setText("UP");
                         } else if (eventType == MotionEvent.ACTION_MOVE) {
                             mTouchView.setText("MOVE");
                         } else if (eventType == MotionEvent.ACTION_CANCEL) {
-                            Folme.useAt(mTouchView).touch().touchUp();
                             mTouchView.setText("CANCEL");
                         }
                     }

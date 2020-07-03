@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.widget.NestedScrollView;
 
 import com.xiaweizi.transitiondemo.R;
 import com.xiaweizi.transitiondemo.stub.touch.TouchTestActivity;
@@ -20,6 +19,12 @@ public class StubHomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(StubHomeActivity.this, TouchTestActivity.class));
+            }
+        });
+        findViewById(R.id.bt_stub2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(StubHomeActivity.this, RecyclerViewActivity.class));
             }
         });
     }
