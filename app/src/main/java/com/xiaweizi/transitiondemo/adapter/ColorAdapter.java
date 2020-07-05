@@ -28,15 +28,23 @@ import java.util.List;
 public class ColorAdapter extends RecyclerView.Adapter<ColorAdapter.ViewHolder> {
     private Context mContext;
     private List<ColorBean> mData;
+    private int mLayoutId;
+    private View.OnClickListener mListener;
 
-    public ColorAdapter(Context context) {
+    public ColorAdapter(Context context, int layoutId) {
         this.mContext = context;
         this.mData = new ArrayList<>();
+        this.mLayoutId = layoutId;
     }
+
+    public void setOnItemClickListener(View.OnClickListener clickListener) {
+        this.mListener = clickListener;
+    }
+
 
     private @LayoutRes
     int getItemLayout() {
-        return R.layout.layout_color_item;
+        return mLayoutId;
     }
 
     public void setData(List<ColorBean> data) {
@@ -67,19 +75,36 @@ public class ColorAdapter extends RecyclerView.Adapter<ColorAdapter.ViewHolder> 
         return mData == null ? 0 : mData.size();
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         private View mRoot;
         private TextView mTvContent;
+        private ColorBean mBean;
 
         ViewHolder(View itemView) {
             super(itemView);
             mRoot = itemView.findViewById(R.id.cl_color_item);
             mTvContent = itemView.findViewById(R.id.tv_color_content);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mListener != null) {
+                        mListener.onClick(v);
+                    }
+                }
+            });
         }
 
+        public ColorBean getBean() {
+            return mBean;
+        }
+
+
         void bind(ColorBean bean, int position) {
+            mBean = bean;
             mTvContent.setText(bean.getContent());
             mRoot.setBackgroundColor(bean.getColor());
         }
     }
+
+
 }

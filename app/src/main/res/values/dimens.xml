@@ -3,4 +3,5 @@
     <dimen name="middle_height">90dp</dimen>
     <dimen name="top_height">300dp</dimen>
     <dimen name="text_size">50sp</dimen>
+    <dimen name="radius">16dp</dimen>
 </resources>

@@ -28,7 +28,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_view);
         mRecyclerView = findViewById(R.id.recycler_view);
-        mAdapter = new ColorAdapter(this);
+        mAdapter = new ColorAdapter(this, R.layout.layout_color_item);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mAdapter);
         ColorItemTouchHelperCallback helperCallback = new ColorItemTouchHelperCallback();
