@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.xiaweizi.transitiondemo.R;
 import com.xiaweizi.transitiondemo.bean.ColorBean;
+import com.xiaweizi.transitiondemo.view.CloudDrawable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,7 +60,7 @@ public class ColorAdapter extends RecyclerView.Adapter<ColorAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.bind(mData.get(position));
+        holder.bind(mData.get(position), position);
     }
 
     @Override
@@ -77,9 +78,14 @@ public class ColorAdapter extends RecyclerView.Adapter<ColorAdapter.ViewHolder> 
             mTvContent = itemView.findViewById(R.id.tv_color_content);
         }
 
-        void bind(ColorBean bean) {
+        void bind(ColorBean bean, int position) {
             mTvContent.setText(bean.getContent());
-            mRoot.setBackgroundColor(bean.getColor());
+            if (position == 0) {
+                CloudDrawable drawable = new CloudDrawable(itemView.getContext());
+                mRoot.setBackground(drawable);
+            } else {
+                mRoot.setBackgroundColor(bean.getColor());
+            }
         }
     }
 }
