@@ -18,34 +18,16 @@ public class TransitionHomeActivity extends AppCompatActivity {
     }
 
     private void initListener() {
-        findViewById(R.id.bt_home_transition1).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.home_transition1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(TransitionHomeActivity.this, TransitionOneActivity.class));
             }
         });
-        findViewById(R.id.bt_home_transition2).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.home_transition2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(TransitionHomeActivity.this, TransitionTwoActivity.class));
-            }
-        });
-        findViewById(R.id.bt_home_transition3).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(TransitionHomeActivity.this, StartOneActivity.class));
-            }
-        });
-        findViewById(R.id.bt_home_transition4).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(TransitionHomeActivity.this, StartTwoActivity.class));
-            }
-        });
-        findViewById(R.id.bt_home_transition7).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(TransitionHomeActivity.this, StubHomeActivity.class));
             }
         });
     }
