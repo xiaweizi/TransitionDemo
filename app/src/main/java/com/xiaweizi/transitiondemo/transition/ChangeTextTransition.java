@@ -5,13 +5,14 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.graphics.Typeface;
 import android.text.TextUtils;
-import android.transition.Transition;
-import android.transition.TransitionValues;
 import android.util.Log;
 import android.util.Property;
 import android.util.TypedValue;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.transition.Transition;
+import androidx.transition.TransitionValues;
 
 import com.xiaweizi.transitiondemo.R;
 
@@ -52,6 +53,9 @@ public class ChangeTextTransition extends Transition {
 
     @Override
     public Animator createAnimator(ViewGroup sceneRoot, TransitionValues startValues, final TransitionValues endValues) {
+        if (startValues == null || endValues == null) {
+            return null;
+        }
         if (!(endValues.view instanceof TextView)) {
             return super.createAnimator(sceneRoot, startValues, endValues);
         }
@@ -72,7 +76,6 @@ public class ChangeTextTransition extends Transition {
         if (startTag instanceof Integer) {
             endTextLevel = (int) endTag;
         }
-        Log.i("xiaweizi::", "startTextLevel: " + startTextLevel + " endTextLevel: " + endTextLevel);
         if (!TextUtils.equals(startText, endText)) {
             return createTextChangeAnimator(endView, startText, endText);
         }
@@ -118,6 +121,7 @@ public class ChangeTextTransition extends Transition {
     private Animator createSizeChangeAnimator(final TextView endView, final float startTextSize, final float endTextSize) {
         ObjectAnimator animator = ObjectAnimator.ofFloat(endView, new TextSizeProperty(), startTextSize, endTextSize);
         animator.setDuration(300);
+        Log.i("xiaweizi::", "createSizeChangeAnimator: ");
         return animator;
     }
 

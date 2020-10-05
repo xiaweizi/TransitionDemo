@@ -4,7 +4,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.transition.TransitionManager;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageView;
@@ -12,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.transition.TransitionManager;
 
 import com.xiaweizi.transitiondemo.R;
 import com.xiaweizi.transitiondemo.TransitionUtils;

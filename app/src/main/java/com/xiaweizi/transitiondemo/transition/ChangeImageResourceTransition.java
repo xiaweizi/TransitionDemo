@@ -3,10 +3,11 @@ package com.xiaweizi.transitiondemo.transition;
 import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.graphics.drawable.Drawable;
-import android.transition.Transition;
-import android.transition.TransitionValues;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import androidx.transition.Transition;
+import androidx.transition.TransitionValues;
 
 /**
  * <pre>
@@ -38,6 +39,9 @@ public class ChangeImageResourceTransition extends Transition {
 
     @Override
     public Animator createAnimator(ViewGroup sceneRoot, TransitionValues startValues, final TransitionValues endValues) {
+        if (startValues == null || endValues == null) {
+            return null;
+        }
         if (!(endValues.view instanceof ImageView)) {
             return super.createAnimator(sceneRoot, startValues, endValues);
         }

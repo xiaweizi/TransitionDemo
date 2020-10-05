@@ -3,10 +3,11 @@ package com.xiaweizi.transitiondemo.transition;
 import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.graphics.drawable.ColorDrawable;
-import android.transition.Transition;
-import android.transition.TransitionValues;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.transition.Transition;
+import androidx.transition.TransitionValues;
 
 /**
  * <pre>
@@ -38,6 +39,9 @@ public class ChangeBackgroundAlphaTransition extends Transition {
 
     @Override
     public Animator createAnimator(ViewGroup sceneRoot, TransitionValues startValues, final TransitionValues endValues) {
+        if (startValues == null || endValues == null) {
+            return null;
+        }
         final View endView = endValues.view;
         final ColorDrawable startColor = (ColorDrawable) startValues.values.get(PROPNAME_BACKGROUND);
         final ColorDrawable endColor = (ColorDrawable) endValues.values.get(PROPNAME_BACKGROUND);
