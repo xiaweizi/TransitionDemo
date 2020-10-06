@@ -20,6 +20,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 
 import androidx.transition.ChangeBounds;
+import androidx.transition.ChangeImageTransform;
 import androidx.transition.ChangeScroll;
 import androidx.transition.TransitionSet;
 

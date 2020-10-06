@@ -1,6 +1,7 @@
 package com.xiaweizi.transitiondemo.transition;
 
 import android.animation.Animator;
+import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.graphics.Typeface;
@@ -76,19 +77,20 @@ public class ChangeTextTransition extends Transition {
         if (startTag instanceof Integer) {
             endTextLevel = (int) endTag;
         }
+        AnimatorSet animatorSet = new AnimatorSet();
         if (!TextUtils.equals(startText, endText)) {
-            return createTextChangeAnimator(endView, startText, endText);
+            animatorSet.playTogether(createTextChangeAnimator(endView, startText, endText));
         }
         if (startTextColor != endTextColor) {
-            return createColorChangeAnimator(endView, startTextColor, endTextColor);
+            animatorSet.playTogether(createColorChangeAnimator(endView, startTextColor, endTextColor));
         }
         if (startTextSize != endTextSize) {
-            return createSizeChangeAnimator(endView, startTextSize, endTextSize);
+            animatorSet.playTogether(createSizeChangeAnimator(endView, startTextSize, endTextSize));
         }
         if (startTextLevel != endTextLevel) {
-            return createTypefaceChangeAnimator(endView, startTextLevel, endTextLevel);
+            animatorSet.playTogether(createTypefaceChangeAnimator(endView, startTextLevel, endTextLevel));
         }
-        return super.createAnimator(sceneRoot, startValues, endValues);
+        return animatorSet;
     }
 
     private Animator createTextChangeAnimator(final TextView endView, final CharSequence startText, final CharSequence endText) {

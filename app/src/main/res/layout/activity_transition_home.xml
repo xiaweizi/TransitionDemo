@@ -54,7 +54,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="20dp"
-        app:cardBackgroundColor="@color/color1"
+        app:cardBackgroundColor="@color/color3"
         app:cardCornerRadius="10dp"
         app:layout_constraintDimensionRatio="3:4"
         app:layout_constraintEnd_toEndOf="@id/home_transition1"
@@ -65,7 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="scene"
+            android:text="Scene"
             android:textColor="#fff"
             android:textSize="30sp" />
     </androidx.cardview.widget.CardView>

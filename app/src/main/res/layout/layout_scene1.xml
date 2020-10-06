@@ -5,25 +5,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/iv_icon"
-        android:layout_width="100dp"
+    <View
+        android:id="@+id/view_bg"
+        android:layout_width="0dp"
         android:layout_height="100dp"
-        android:src="@drawable/boy"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="12dp"
+        android:background="@color/color1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:src="@drawable/boy"
+        app:layout_constraintBottom_toBottomOf="@id/view_bg"
+        app:layout_constraintStart_toStartOf="@id/view_bg"
+        app:layout_constraintTop_toTopOf="@id/view_bg" />
 
     <TextView
         android:id="@+id/tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="dd"
+        android:layout_marginStart="12dp"
+        android:text="张三"
         android:textColor="#fff"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="@id/iv_icon"
-        app:layout_constraintStart_toStartOf="@id/iv_icon"
-        app:layout_constraintTop_toBottomOf="@id/iv_icon" />
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/iv_icon"
+        app:layout_constraintTop_toTopOf="@id/iv_icon" />
+
+    <TextView
+        android:id="@+id/tv_desc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="通常是举例的时候泛指某些人。张三和李四、王五、王大麻子通常联系在一起被使用。"
+        android:textColor="#fff"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@id/iv_icon"
+        app:layout_constraintEnd_toEndOf="@id/view_bg"
+        app:layout_constraintStart_toEndOf="@id/iv_icon" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
